@@ -26,12 +26,12 @@ export class Navbar extends Component {
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item custom-a-color" href="#"><Link to ="/HVAC">HVAC</Link></a>
-                    <a class="dropdown-item" href="#"><Link to ="/Electrical">Electric</Link></a>
-                    <a class="dropdown-item" href="#"><Link to ="/Firefighting">Firefighting</Link></a>
+                    <a class="dropdown-item" href="#"><Link to ="/MEP">MEP</Link></a>
+                    <a class="dropdown-item" href="#"><Link to ="/Retrofiting">Retrofiting</Link></a>
                     <a class="dropdown-item" href="#"><Link to ="/Interiors">Interiors</Link></a>
-                    <a class="dropdown-item" href="#"><Link to ="/BMS">BMS And Much More</Link></a>
+                    <a class="dropdown-item" href="#"><Link to ="/BMS">BMS</Link></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><Link to ="PHE">Public Health Engineering</Link></a>
+                    <a class="dropdown-item" href="#"><Link to ="/Energy">Energy</Link></a>
                 </div>
             </li>
             {/* <li className="nav-item"> <a className="nav-link" href="#price">Prices</a>

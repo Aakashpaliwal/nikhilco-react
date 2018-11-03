@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Home.css';
+import {Link} from 'react-router-dom';
 // import './slider';
 export class Home extends Component {
   constructor(props)
@@ -160,52 +161,52 @@ export class Home extends Component {
             </div>
               <div className="row">
                 <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                  <div className="custom-offer-box text-center">
+                 <Link to="/HVAC"> <div className="custom-offer-box text-center">
                   <i className="fa fa-thermometer-empty" aria-hidden="true"></i>
                       <h4>HVAC</h4>
                       <p>Airconditioning and ventillation design of commerical and residential is our core business and successfully pursuing this since last 25+ years</p>
-                  </div>
+                  </div></Link>
                 </div>
 
                  <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                  <div className="custom-offer-box text-center">
+                 <Link to="/MEP"> <div className="custom-offer-box text-center">
                   <i class="fa fa-fire-extinguisher" aria-hidden="true"></i>
                       <h4>MEP</h4>
                       <p>Be it firefighting and basic mechanical arrangement or Electrical or plumbing Job we know it best to get it done peacefully </p>
-                  </div>
+                  </div></Link>
                 </div>
 
                  <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                  <div className="custom-offer-box text-center">
+                <Link to="Retrofiting">  <div className="custom-offer-box text-center">
                   <i className="fa fa-wrench" aria-hidden="true"></i>
                       <h4>Retroffiting </h4>
                       <p>Refurbishing the existing sites with newer set of consumables and equipments which are energy efficient and enable you to comply leeds certification </p>
-                  </div>
+                  </div></Link>
                 </div>
 
               <div className="row custom-featured-row">
               <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                  <div className="custom-offer-box text-center">
+                <Link to="Interiors">  <div className="custom-offer-box text-center">
                   <i className="fa fa fa-plug" aria-hidden="true"></i>
                       <h4>Interiors</h4>
                       <p>Solutions ranging from clean air to purifiend water by using state of art installations of equipment in your premise </p>
-                  </div>
+                  </div></Link>
                 </div>
 
                   <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                  <div className="custom-offer-box text-center">
+                <Link to="/BMS">  <div className="custom-offer-box text-center">
                   <i className="fa fa-bullhorn" aria-hidden="true"></i>
                       <h4>Building Management System</h4>
                       <p className="bms-para">A building management system (BMS) is a control system that can be used to monitor and manage the mechanical, electrical and electromechanical services in a facility. Such services can include power, heating, ventilation, air-conditioning, physical access control, pumping stations, elevators and lights.</p>
-                  </div>
+                  </div></Link>
                 </div>
 
                  <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                  <div className="custom-offer-box text-center">
+               <Link to="/Energy">   <div className="custom-offer-box text-center">
                   <i className="fa fa-tint" aria-hidden="true"></i>
                       <h4>Energy Consultation </h4>
                       <p>Sustainabilty is one of the core agenda of the day and here comes our expert team who can enable you to Go green by using less energy </p>
-                  </div>
+                  </div></Link>
                 </div>
               </div>
 
