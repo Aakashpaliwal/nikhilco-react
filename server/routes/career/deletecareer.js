@@ -8,7 +8,7 @@ router.get('/',func.auth,function(req, res, next)
 {
   var career_id=req.query.id;
   // req.checkQuery('id', 'id must be a number').optional().isNumber();
-  req.checkQuery('id', 'id must be a number').isNumeric();
+  req.checkQuery('id', 'id must be a number').isInt();
   var verrs=req.validationErrors();
   if(verrs)
   {
@@ -16,7 +16,7 @@ router.get('/',func.auth,function(req, res, next)
   }
   else
   {
-    con.query("update career set ? where career_id= ? and status=1 and createdby=? ",[{'status':0},career_id,req.session.adminid],function(err,careerresult,fields)
+    con.query("update career set ? where career_id= ? and career_status=1  ",[{'career_status':0},career_id,req.session.adminid],function(err,careerresult,fields)
     {
         if(err)
         {

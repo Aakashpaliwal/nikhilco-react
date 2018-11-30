@@ -1,7 +1,82 @@
 import React, { Component } from 'react';
 import './Career.css'
-
+import {Link} from 'react-router-dom'
 class Career extends Component {
+    constructor(props)
+  {
+    super(props);
+    this.state = {
+    first_name : "",
+    last_name : "",
+    email : "",
+    subject : "",
+    contact_number : ""
+  
+    };
+  }
+   
+      change  = e => {
+        this.setState ({
+          [e.target.name]: e.target.value
+        });
+      };
+      getWebsite = () => {
+        fetch("/")
+    };
+      onSubmit = e =>
+      {
+          e.preventDefault();
+          console.log(this.state);
+        //   if (
+        //     this.state.category === "" ||
+        //     this.state.subcategory === "" ||
+        //     this.state.company === "" ||
+        //     this.state.model === "" ||
+        //     this.state.manufacturing_year === ""
+           
+        //  ) {
+        //     alert("Unable to contact because fields were left blank");
+        //     }else {
+        //         fetch(`/contact`,{
+        //             method : "POST",
+        //             headers : {
+        //                 "Content-Type": "application/json; charset=utf-8"
+        //             },
+        //             body: JSON.stringify(this.state)
+        //         }
+        //         ).then(this.getWebsite);
+        //       }
+          this.setState ({
+            first_name : "",
+            last_name : "",
+            email : "",
+           profile: "",
+            contact_number : ""
+
+          })
+          //replace /contact with server url
+          fetch('career/add',{
+
+            method : "POST",
+            headers : {
+				'Authorization': 'Bearer' + this.state.token,
+              "Content-Type" : "application/json; charset=utf-8"
+            },
+            body: JSON.stringify(this.state)
+          }) .then(function(response){ 
+            return response.json();})
+        .then(function(json){
+             if(json.success===true){
+            //   console.log(json);
+            alert("your data has been submitted");
+        }
+        else{
+          alert(json.msg);
+          console.log(json);
+      }
+    })
+
+      };
     render() {
         return (
             <React.Fragment>
@@ -64,7 +139,46 @@ class Career extends Component {
                       	<li>Any open source code or example projects that you're proud of.</li>
                       	<li>Any other evidence of your passion for building great applications</li>
                       </ul>
-              <button className="btn btn-info">Apply Now</button>   
+              <button className="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Apply Now</button>   
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                    <div className="career-custom-form">
+             <form autoComplete="off">
+  <div class="form-row">
+  <div class="form-group col-md-12">
+      <label for="inputPassword4">Profile</label>
+      <select id="inputState" class="form-control" name="profile" value={this.state.profile} onChange = {e => this.change(e)}>
+        <option selected>Choose...</option>
+        <option value="FrontEnd Developer">FrontEnd Developer</option>
+        <option value="BackEnd Developer">BackEnd Developer</option>
+        <option value="Full Stack Developer">Full Stack Developer</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">First Name</label>
+      <input type="text" class="form-control" id="inputEmail4" name="first_name" value={this.state.first_name} onChange={e => this.change(e)}/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Last Name</label>
+      <input type="text" class="form-control" id="inputPassword4" name="last_name" value={this.state.last_name} onChange={e => this.change(e)}/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Email</label>
+      <input type="email" class="form-control" id="inputPassword4" name="email" value={this.state.email} onChange={e => this.change(e)}/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Contact Number</label>
+      <input type="number" class="form-control" id="inputPassword4" name="contact_number" value={this.state.contact_number} onChange={e => this.change(e)}/>
+    </div>
+  </div>
+  <button class="btn btn-info text-center center-block" onClick = {e => this.onSubmit(e)}>Send</button>
+</form>
+
+             </div>
+                                    </div>
+                                </div>
+                                </div>
             </div>
             <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                 <a class="card-title">
@@ -93,7 +207,46 @@ class Career extends Component {
                       	<li>Any open source code or example projects that you're proud of.</li>
                       	<li>Any other evidence of your passion for building great applications</li>
                       </ul>
-              <button className="btn btn-info">Apply Now</button>   
+              <button className="btn btn-info" data-toggle="modal" data-target=".bd-example-backend-modal-lg">Apply Now</button>   
+              <div class="modal fade bd-example-backend-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                    <div className="career-custom-form">
+             <form autoComplete="off">
+  <div class="form-row">
+  <div class="form-group col-md-12">
+      <label for="inputPassword4">Profile</label>
+      <select id="inputState" class="form-control" name="profile" value={this.state.profile} onChange = {e => this.change(e)}>
+        <option selected>Choose...</option>
+        <option value="FrontEnd Developer">FrontEnd Developer</option>
+        <option value="BackEnd Developer">BackEnd Developer</option>
+        <option value="Full Stack Developer">Full Stack Developer</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">First Name</label>
+      <input type="text" class="form-control" id="inputEmail4" name="first_name" value={this.state.first_name} onChange={e => this.change(e)}/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Last Name</label>
+      <input type="text" class="form-control" id="inputPassword4" name="last_name" value={this.state.last_name} onChange={e => this.change(e)}/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Email</label>
+      <input type="email" class="form-control" id="inputPassword4" name="email" value={this.state.email} onChange={e => this.change(e)}/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Contact Number</label>
+      <input type="number" class="form-control" id="inputPassword4" name="contact_number" value={this.state.contact_number} onChange={e => this.change(e)}/>
+    </div>
+  </div>
+  <button class="btn btn-info text-center center-block" onClick = {e => this.onSubmit(e)}>Send</button>
+</form>
+
+             </div>
+                                    </div>
+                                </div>
+                                </div>
             </div>
         </div>
     </div>
@@ -182,6 +335,29 @@ class Career extends Component {
                     </div>
                     </div>
                 </div>
+
+            <div className="custom-modal-here">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {/*modal here */}
+                         
+                                {/* <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> */}
+
+                                {/* <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                    ...
+                                    </div>
+                                </div>
+                                </div> */}
+
+                            {/*end modal here */}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
              
             </div>
             </React.Fragment>

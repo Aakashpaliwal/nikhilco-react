@@ -6,7 +6,7 @@ export class Footer extends Component {
   {
     super(props);
     this.state = {
-   email: ""
+   email : ""
   
     };
   }
@@ -43,17 +43,30 @@ export class Footer extends Component {
         //         ).then(this.getWebsite);
         //       }
           this.setState ({
-            email : ""
+          email : ""
 
           })
           //replace /contact with server url
-          fetch('/subscribe', {
+          fetch('quote/add',{
+
             method : "POST",
             headers : {
-              "Content-Type" : "application/json; chardet=utf-8"
+				'Authorization': 'Bearer' + this.state.token,
+              "Content-Type" : "application/json; charset=utf-8"
             },
-            body : JSON.stringify(this.state)
-          }).then(this.getWebsite);
+            body: JSON.stringify(this.state)
+          }) .then(function(response){ 
+            return response.json();})
+        .then(function(json){
+             if(json.success===true){
+            //   console.log(json);
+            alert("your data has been submitted");
+        }
+        else{
+          alert(json.msg);
+          console.log(json);
+      }
+    })
 
       };
   render() {
@@ -92,8 +105,12 @@ export class Footer extends Component {
                      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     {/* <button type="submit" class="btn btn-primary btn-contact-footer">CONTACT US</button> */}
                    <h5>Signup To Our Newsletter </h5>
+                   <form autoComplete="off">
+                      <div className="footer-form">
                     <input type="email" className="form-control footer-email" name="email" value = {this.state.email} onChange = {e => this.change(e)}/>
                     <button className="btn btn-primary custom-footer-btn form-control" onClick = {e => this.onSubmit(e)}>SEND</button>
+                   </div>
+                   </form>
                     </div>
                 </div>
                 </div>

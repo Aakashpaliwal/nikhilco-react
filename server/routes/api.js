@@ -3,7 +3,7 @@ var router = express.Router();
 
 var contact_us = require('./contact_us');
 router.use('/contact_us', contact_us);
-var quote = require('./quote');
+var quote = require('./quote/quote.js');
 router.use('/quote', quote);
 var partner = require('./partner/partner');
 router.use('/partner', partner);

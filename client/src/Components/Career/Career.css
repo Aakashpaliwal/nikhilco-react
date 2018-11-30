@@ -9,6 +9,34 @@
    padding: 10px;   
 
 }
+.career-custom-form {
+    padding: 5%;
+}
+.career-custom-form input {
+    border-style: none;
+    border-bottom: solid thin #e1e1e1;
+    box-shadow: none;
+    background: none;
+    color: #888;
+}
+.career-custom-form input:focus {
+    box-shadow: none;
+    background: none;
+}
+.career-custom-form textarea {
+    border-style: none;
+    border-bottom: solid thin #e1e1e1;
+    box-shadow: none;
+    background: none;
+}
+.career-custom-form textarea:focus {
+    box-shadow: none;
+    background: none;
+}
+.career-custom-second-row {
+    margin-top: 30px;
+}
+
 .career-content-bg {
     background: #fff;
     padding: 3%;

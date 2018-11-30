@@ -6,7 +6,7 @@ var con = require('../db');
 
 router.get('/',func.auth,function(req, res, next) 
 {         
-  con.query("select * from career where career_status=1 ",[req.session.adminid],function(err,careerresult,fields)
+  con.query("select * from quote where quote_status=1 ",[req.session.adminid],function(err,quoteresult,fields)
   {
     if(err)
     {
@@ -19,7 +19,7 @@ router.get('/',func.auth,function(req, res, next)
     // }
     else
     {
-      res.json({"success":true,'msg':'all career list','careerdata':careerresult});    
+      res.json({"success":true,'msg':'all quote list','quotedata':quoteresult});    
     }      
   });           
 });

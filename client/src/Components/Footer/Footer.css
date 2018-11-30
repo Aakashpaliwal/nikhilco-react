@@ -102,3 +102,15 @@
     border-bottom: solid thin #0077e8;
     transition: all ease 0.5s;
 }
+.footer-form input {
+    border-style: none;
+    border-bottom: solid thin #e1e1e1;
+    box-shadow: none;
+    background: none;
+    color: #888;
+}
+.footer-form input:focus {
+    box-shadow: none;
+    background: none;
+    color: #fff
+}
