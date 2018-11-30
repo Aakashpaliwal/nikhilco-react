@@ -56,13 +56,26 @@ export class Home extends Component {
 
           })
           //replace /contact with server url
-          fetch('/partner', {
+          fetch('partner/add',{
+
             method : "POST",
             headers : {
-              "Content-Type" : "application/json; chardet=utf-8"
+				'Authorization': 'Bearer' + this.state.token,
+              "Content-Type" : "application/json; charset=utf-8"
             },
-            body : JSON.stringify(this.state)
-          }).then(this.getWebsite);
+            body: JSON.stringify(this.state)
+          }) .then(function(response){ 
+            return response.json();})
+        .then(function(json){
+             if(json.success===true){
+            //   console.log(json);
+            alert("your data has been submitted");
+        }
+        else{
+          alert(json.msg);
+          console.log(json);
+      }
+    })
 
       };
   render() {

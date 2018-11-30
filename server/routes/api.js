@@ -5,7 +5,7 @@ var contact_us = require('./contact_us');
 router.use('/contact_us', contact_us);
 var quote = require('./quote');
 router.use('/quote', quote);
-var partner = require('./partner');
+var partner = require('./partner/partner');
 router.use('/partner', partner);
 var admin_login = require('./admin_login');
 router.use('/login', admin_login);
